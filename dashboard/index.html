@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/index.css">
+   <style>
+    @media screen and (min-width:900px) {
+        .show-md{
+            display: none;
+          } 
+    }
+   </style>
+    <title>Dashboard</title>
+</head>
+<body class="brooker-light brooker-min-vh-10 brooker-dashboard">
+    <header class="brooker-white brooker-p-2 brooker-card brooker-flex brooker-align-center brooker-justify-between">
+        <div class="show-md">
+            <button class="brooker-mr-1" id="open-side-menu">
+                <i class="bi bi-chevron-left brooker-text-lg brooker-text-theme"></i>
+            </button>
+        </div>
+        <div>
+        <button class="brooker-mr-1">
+            <i class="bi bi-justify brooker-text-lg brooker-text-theme"></i>
+        </button>
+        <a href="/" class="brooker-text-lg brooker-text-bold">LOGO</a>
+      </div>
+      <div class="brooker-dropdown">
+         <button class="brooker-dropdown-btn brooker-theme brooker-p-1 brooker-rounded-full" style="height: 40px;width:40px"><i class="bi bi-person-fill brooker-text-lg"></i></button>
+         <ul class="brooker-dropdown-menu brooker-py-2 brooker-white brooker-p-2 brooker-card">
+            <p class="brooker-text-bold brooker-text-m">Edih Goodluck</p>
+            <p class="brooker-text-m">goodluckedih@gmail.com</p>
+            <p class="brooker-my-2"><a href="/" class="brooker-danger brooker-text-sm brooker-rounded brooker-text-white brooker-px-3 brooker-py-1">Account Settings</a></p>
+            <li class="brooker-my-1 border-bottom"><a href="/" class="brooker-text-m">Deposit</a></li>
+            <li class="brooker-my-1 border-bottom"> <a href="/" class="brooker-text-m">Withdraw</a></li>
+            <li class="brooker-my-1 border-bottom" ><a href="/" class="brooker-text-sm brooker-rounded brooker-py-1">Logout</a></li>
+         </ul>
+      </div>
+    </header>
+    <main class="brooker-dashboard-main">
+        <div id="sidemenu" class="brooker-sidemenu hide brooker-white brooker-card ">
+            <div class="links brooker-p-2">
+                <p class="brooker-text-bold brooker-my-2">Edih Goodluck</p>
+                <hr>
+                <a href="" class="link active">Dashboard</a>
+                <a href="" class="link">Deposit</a>
+                <a href="" class="link">Invest</a>
+                <a href="" class="link">Withdraw Funds</a>
+                <a href="" class="link">Profit Record</a>
+                <a href="" class="link">Transactions</a>
+                <a href="" class="link">Refer Users</a>
+                <a href="" class="link">Support</a>
+            </div>
+        </div>
+        <section class="main-content brooker-p-2">
+            <header>
+                <h3>Welcome Edih Goodluck</h3>
+            </header>
+        </section>
+    </main>
+    <script>
+        const button = document.querySelector("#open-side-menu")
+        const sidemenu = document.querySelector("#sidemenu")
+        button.addEventListener("click",()=>{
+          sidemenu.classList.toggle("hide")
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+$padding:1em;
+$font_size:1em;
+$colors:(
+    "black":#000,
+    "theme":#FFCF01,
+    "grey":#8D9194,
+    "danger":#F44336,
+    "light":#F4F5F6,
+    "dark":#0F171C,
+    "white":#fff,
+    
+);
+$sizes:(
+    "xs":0.4,
+    "sm":0.8,
+    "m":0.9,
+    "md":1,
+    "lg":1.2,
+    "xl":1.6,
+    "2xl":2,
+    "3xl":2.4,
+    "4xl":2.8,
+    "5xl":3.2,
+    "6xl":3.6,
+    "7xl":4,
+);
+$break_points:(
+    "md":900px,
+    "sm":500px,
+    "lg":1200px
+);
+$casing:(
+    "uppercase":uppercase,
+    "lowercase":lowercase,
+    "capital":capitalize
+);
+$display:(
+    "block":block,
+    "inline-block":inline-block,
+    "flex":flex,
+    "none":none
+);
+$flex_align:(
+    "center":center,
+    "end":flex-end,
+    "start":flex-start
+);
+$flex_justify:(
+   "center":center,
+   "between":space-between,
+   "around":space-around,
+)

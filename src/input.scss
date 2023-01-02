@@ -1,0 +1,458 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap');
+@import "./variables";
+@import "./mixins/button";
+@import "./mixins/media";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', monospace;
+}
+
+.brooker-container{
+    max-width: 1096px;
+    padding: $padding;
+    margin: auto;
+}
+.brooker-font-nunito{
+    font-family: 'Nunito', monospace;
+}
+.brooker-text-bold{
+    font-weight: 900;
+}
+.brooker-text-left{
+    text-align: left;
+}
+.brooker-text-right{
+    text-align: right;
+}
+.brooker-rounded{
+    border-radius: 7px;
+}
+.brooker-rounded-md{
+    border-radius: 14px;
+}
+.brooker-rounded-lg{
+    border-radius: 21px;
+}
+.brooker-rounded-xl{
+    border-radius: 28px;
+}
+.brooker-rounded-2xl{
+    border-radius: 35px;
+}
+.brooker-rounded-full{
+    border-radius: 9999px;
+}
+.brooker-text-center{
+    text-align: center;
+}
+.brooker-card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+@each $k,$v in $display{
+    .brooker-#{$k}{
+      display: $v;
+    }
+    @include md{
+        .brooker-md-#{$k}{
+            display: $v;
+          }
+    }
+    @include sm{
+        .brooker-sm-#{$k}{
+            display: $v;
+          }
+    }
+    
+}
+@each $k,$v in $flex_align{
+    .brooker-flex.brooker-align-#{$k}{
+        align-items: $v;
+    }
+}
+@each $k,$v in $flex_justify{
+    .brooker-flex.brooker-justify-#{$k}{
+        justify-content: $v;
+    }
+}
+@for $i from 1 through 5{
+    $inc:$i * 0.4;
+    $padding_val: $inc * $padding;
+    .brooker-p-#{$i}{
+        padding: $padding_val;
+    }
+    .brooker-pl-#{$i}{
+        padding-left: $padding_val;
+    }
+    .brooker-pr-#{$i}{
+        padding-right: $padding_val;
+    }
+    .brooker-pt-#{$i}{
+        padding-top: $padding_val;
+    }
+    .brooker-pb-#{$i}{
+        padding-bottom: $padding_val;
+    }
+    .brooker-px-#{$i}{
+        padding-inline: $padding_val;
+    }
+    .brooker-py-#{$i}{
+        padding-block: $padding_val;
+    }
+    .brooker-m-#{$i}{
+        margin: $padding_val;
+    }
+    .brooker-ml-#{$i}{
+        margin-left: $padding_val;
+    }
+    .brooker-mr-#{$i}{
+        margin-right: $padding_val;
+    }
+    .brooker-mt-#{$i}{
+        margin-top: $padding_val;
+    }
+    .brooker-mb-#{$i}{
+        margin-bottom: $padding_val;
+    }
+    .brooker-mx-#{$i}{
+        margin-inline: $padding_val;
+    }
+    .brooker-my-#{$i}{
+        margin-block: $padding_val;
+    }
+}
+.brooker-m-auto{
+    margin: auto;
+}
+.brooker-ml-auto{
+    margin-left: auto;
+}
+.brooker-mr-auto{
+    margin-right: auto;
+}
+.brooker-mx-auto{
+    margin-inline: auto;
+}
+.brooker-outline-none{
+    outline: none;
+}
+
+@for $i from 1 through 10{
+    $height:$i*10vh;
+    .brooker-vh-#{$i}{
+        height: $height;
+    }
+    .brooker-min-vh-#{$i}{
+        min-height: $height;
+    }
+}
+@for $i from 1 through 20{
+    $percent:$i * 5;
+    .brooker-w-#{$percent}{
+        width:$percent * 1%;
+    }
+    @include md{
+        .brooker-w-md-#{$percent}{
+            width:$percent * 1%;
+          }
+    }
+    @include sm{
+        .brooker-w-sm-#{$percent}{
+            width:$percent * 1%;
+          }
+    }
+}
+@each $key,$var in $sizes {
+    .brooker-text-#{$key}{
+        font-size: $font_size * $var;
+    }
+}
+@each $key,$var in $casing  {
+  .brooker-text-#{$key}{
+    text-transform: $var;
+  }
+}
+@each $key,$var in $colors {
+    .brooker-#{$key}{
+    background-color: $var;
+    @if $key == "white" {
+       color: #000;  
+    }
+    @if $key == "black" or $key == "dark"{
+      color:#F4F5F6;
+    }
+    }
+  .brooker-text-#{$key}{
+        color: $var;
+   }
+  .brooker-outline-#{$key}{
+    border: 1px solid $var !important;
+    color: $var !important;
+  }
+  .brooker-outline-#{$key}{
+    border: 1px solid $var;
+  }
+}
+.brooker-img-fluid{
+    width: 100%;
+}
+.brooker-grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: 15px;
+    @for $i from 1 through 12{
+      .brooker-col-#{$i}{
+          grid-column: span $i;
+      }
+    }
+    @include md(){
+            @for $i from 1 through 12{
+              .brooker-col-md-#{$i}{
+                  grid-column: span $i;
+              }
+            }
+    }
+    @include md(){
+            @for $i from 1 through 12{
+              .brooker-col-sm-#{$i}{
+                  grid-column: span $i;
+              }
+            }
+        }
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    width: 100%;
+    padding: $padding * 1.5 $padding * 2;
+    background-color: #181A20;
+    display:flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10000000;
+    .logo-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button{
+            display: none;
+        }
+    }
+    .menu{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: auto;
+    }
+    .brooker-navlinks{
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            display: block;
+            margin-inline:$padding;
+        }
+    }
+    a{
+        text-decoration: none;
+        color: #fff;
+        font-size: small;
+        font-weight: bolder;
+    }
+    .register{
+        padding: $padding * 0.7  $padding * 1.5;
+        @extend .brooker-rounded;
+    }
+    .login{
+        margin-inline:$padding ;
+        padding: $padding * 0.7  $padding * 1.5;
+        @extend .brooker-rounded;
+    }
+    .brooker-actions{
+        display: flex;
+        a{
+            display: block;
+        }
+    }
+ 
+    @include md{
+        display: block;
+        .menu{
+            display: block;
+            max-height: 0;
+            overflow-y: hidden;
+            transition: all ease 0.3s;
+        }
+        .brooker-navlinks{
+            display: block;
+            a{
+                margin-inline: unset;
+                margin-block: $padding;
+            }
+        }
+        .logo-container{
+            button{
+                display: inline-block;
+            }
+        }
+        .brooker-actions{
+            display: block;         
+        }
+        .register, .login{
+            margin-inline:unset;
+            margin-block:10px;
+        }
+    }
+}
+
+.hero{
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgb(15,23,28,1)), url("../images/bg.jpg") ;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+.hero-content{
+   max-width: 700px;
+   height: 100%;
+   margin:auto;
+   padding-block-start:$padding * 10;
+   text-align: center;
+   .hero-title{
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: 700;
+   }
+   .hero-text{
+    font-size: 20px;
+   }
+   .hero-btn{
+    display: inline-block;
+    margin-block:$padding;
+    padding: $padding * 0.6 $padding * 2;
+   }
+}
+.brooker-about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brooker-box{
+    width: 70px;
+    height: 70px;
+    border-radius: 1000px;
+    margin:$padding auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brooker-join{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgb(15,23,28,1)), url("../images/refs.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+//login and signup pages styles
+.brooker-form-img{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgb(15,23,28,1)), url('../images/refs.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+//dashboard
+.brooker-dropdown{
+    position: relative;
+    &:hover{
+        .brooker-dropdown-menu{
+           opacity: 1;
+           z-index: 20;
+        }
+    }
+    .brooker-dropdown-menu{
+        opacity: 0;
+        z-index: -1;
+        transition: all ease 0.3s;
+        position: absolute;
+        top:10;
+        right: 0;
+        li.border-bottom{
+            &:last-child{
+                border-bottom: none;
+            }
+            border-bottom: 1px solid lightgray;
+        }
+        li.border-top{
+            &:first-child{
+                border-top: none;
+            }
+            border-top: 1px solid lightgray;
+        }
+    }
+}
+
+
+.brooker-dashboard-main{
+    width: 100%;
+    position: relative;
+    min-height: 90vh;
+    max-height: 90vh;
+    overflow-y: scroll;
+   
+    .brooker-sidemenu{
+      position: absolute;
+      top: 1px;
+      left: 0;
+      width: 23%;
+      height: 100%;
+      
+      .link{
+        &:hover{
+            @extend .brooker-light
+        }
+        display: block;
+        margin-block: $padding * 1.2 ;
+        padding: $padding * 0.5 $padding;
+        border-radius: 7px;
+        font-size: 15px;
+        transition: all ease 0.7s;
+        @extend .brooker-font-nunito;
+      }
+      .link.active{
+        @extend .brooker-theme
+      }
+    }
+    .main-content{
+        margin-left: 23%;
+    }
+    @include md{
+        .main-content{
+            margin-left: 0;
+        }
+        .brooker-sidemenu{
+            width: 50%;
+        }
+        .brooker-sidemenu.hide{
+           transform: translateX(-100%);
+           transition: all ease 0.7s;
+        }
+    }
+    @include sm{
+        .brooker-sidemenu{
+            width: 75%;
+        } 
+    }
+}
